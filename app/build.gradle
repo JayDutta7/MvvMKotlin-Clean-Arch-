@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
@@ -38,6 +40,7 @@ dependencies {
     def gson="2.8.5"
     def rxAndroid="2.1.1"
     def rxJava="3.0.0-RC5"
+    def roomDatabase="2.2.2"
 
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
@@ -47,4 +50,9 @@ dependencies {
     implementation "io.reactivex.rxjava3:rxjava:$rxJava"
     //Timber-Log
     implementation "com.jakewharton.timber:timber:$timberLog"
+    // Room dependencies(Database)
+    implementation "androidx.room:room-runtime:$roomDatabase"
+    kapt "androidx.room:room-compiler:$roomDatabase"
+    // optional - Kotlin Extensions and Rxjava2 support for Room
+    implementation "androidx.room:room-rxjava2:$roomDatabase"
 }
