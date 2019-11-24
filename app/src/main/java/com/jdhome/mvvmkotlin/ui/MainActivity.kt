@@ -1,7 +1,8 @@
-package com.jdhome.mvvmkotlin
+package com.jdhome.mvvmkotlin.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.jdhome.mvvmkotlin.R
 
 class MainActivity : AppCompatActivity() {
 

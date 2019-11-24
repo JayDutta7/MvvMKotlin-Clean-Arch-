@@ -34,11 +34,17 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     def lifecycle_version = "1.1.1"
+    def timberLog="4.7.1"
+    def gson="2.8.5"
+    def rxAndroid="2.1.1"
+    def rxJava="3.0.0-RC5"
 
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
-
-    implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.0-RC5'
+    //RxJava & RxAndroid
+    implementation "com.google.code.gson:gson:$gson"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid"
+    implementation "io.reactivex.rxjava3:rxjava:$rxJava"
+    //Timber-Log
+    implementation "com.jakewharton.timber:timber:$timberLog"
 }
