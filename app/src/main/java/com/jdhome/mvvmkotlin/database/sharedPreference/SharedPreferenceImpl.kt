@@ -9,19 +9,15 @@ import timber.log.Timber
 class SharedPreferenceImpl(context: Context) : ISharedPreference {
 
 
-
-
-
     private var sharedPref: SharedPreferences =
         SharedPreferenceKt(context = context).providePreferences()
-
 
 
     override fun setPrefValue(key: String, value: Any?) {
         when (value) {
             is String? -> {
                 sharedPref.edit()?.putString(key, value)?.apply()
-                Timber.e( value)
+                Timber.e(value)
             }
             is Int -> {
                 sharedPref.edit()?.putInt(key, value)?.apply()
@@ -48,6 +44,12 @@ class SharedPreferenceImpl(context: Context) : ISharedPreference {
             else -> throw UnsupportedOperationException("Not supported")
         }
     }
+
+    private fun getAny(key: String) {
+
+    }
+
+
 
     override fun clearPrefValue() {
         sharedPref.edit()?.clear()?.apply()

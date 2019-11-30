@@ -15,7 +15,7 @@ class StaticVarVal {
 
 
         /*todo Application--Name*/
-        const val applicationName = "JusTTrack"
+        const val applicationName = "MvvMKotlin"
 
 
     }
