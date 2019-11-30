@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.jdhome.mvvmkotlin.R
-import com.jdhome.mvvmkotlin.viewmodel.Image.ImageViewModel
+import com.jdhome.mvvmkotlin.viewmodel.home.ImageViewModel
 
 class Image : Fragment() {
 

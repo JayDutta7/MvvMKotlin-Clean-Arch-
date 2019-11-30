@@ -1,4 +1,4 @@
-package com.jdhome.mvvmkotlin.viewmodel.Image
+package com.jdhome.mvvmkotlin.viewmodel.home
 
 import androidx.lifecycle.ViewModel
 
