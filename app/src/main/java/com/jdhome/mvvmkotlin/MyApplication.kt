@@ -8,7 +8,7 @@ import androidx.multidex.MultiDex
 import com.jdhome.mvvmkotlin.database.localDatabase.MyAppDataBase
 import com.jdhome.mvvmkotlin.database.sharedPreference.SharedPreferenceImpl
 import timber.log.Timber
-import com.jdhome.mvvmkotlin.utility.ReleaseApkTreeLog as ReleaseApkTreeLog
+import com.jdhome.mvvmkotlin.utility.ReleaseApkTreeLog
 
 class MyApplication:Application() {
 
