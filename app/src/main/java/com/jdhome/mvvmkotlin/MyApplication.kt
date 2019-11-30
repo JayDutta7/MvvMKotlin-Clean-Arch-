@@ -4,23 +4,63 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
+import androidx.multidex.MultiDex
+import com.jdhome.mvvmkotlin.database.localDatabase.MyAppDataBase
+import com.jdhome.mvvmkotlin.database.sharedPreference.SharedPreferenceImpl
 import timber.log.Timber
+import com.jdhome.mvvmkotlin.utility.ReleaseApkTreeLog as ReleaseApkTreeLog
 
 class MyApplication:Application() {
 
+    /**
+     * SharedPreference*/
+    private lateinit var sharedPreference: SharedPreferenceImpl
 
-    override fun onLowMemory() {
-        super.onLowMemory()
+    /**
+     * Room Database*/
+    private lateinit var ticketDatabase: MyAppDataBase
+
+    /**
+     * set instance*/
+    init {
+        instance = this
     }
 
-    override fun onTerminate() {
-        super.onTerminate()
+
+    /**
+     * Static Field*/
+    companion object {
+
+        private lateinit var instance: MyApplication
+
+        /**
+         * getting context from application class*/
+        fun getApplicationContext(): Context {
+            //Timber.e("Context--ApplicationContext")
+            return instance.applicationContext
+        }
+
+
+        /**
+         * getting  SharedPref through application class*/
+        fun getPref(): SharedPreferenceImpl {
+            //Timber.e( "LocalDatabase--SharedPref")
+            return instance.sharedPreference
+        }
+
+        /**
+         *getting RoomDatabase through application class*/
+        fun getRoomDatabase(): MyAppDataBase {
+            //Timber.e( "Room--LocalDatabase")
+            return instance.ticketDatabase
+        }
     }
+
 
     override fun attachBaseContext(context: Context?) {
         super.attachBaseContext(context)
         /**initialize multiDex for over 65k methods in application class*/
-
+        MultiDex.install(context)
     }
 
 
@@ -28,6 +68,16 @@ class MyApplication:Application() {
         super.onCreate()
 
         registerActivityLifecycleCallbacks(myApplication)
+
+        /**Initialize Timber-Log as Per Build Wise**/
+        when {
+            BuildConfig.DEBUG -> {
+                Timber.plant(Timber.DebugTree())
+            }
+            else -> {
+                Timber.plant(ReleaseApkTreeLog())
+            }
+        }
     }
 
     private val myApplication = object : ActivityLifecycleCallbacks {

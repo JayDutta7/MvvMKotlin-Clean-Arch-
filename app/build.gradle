@@ -42,6 +42,7 @@ dependencies {
     def rxJava="3.0.0-RC5"
     def roomDatabase="2.2.2"
     def glidE="4.9.0"
+    def multidex="2.0.1"
 
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
@@ -62,4 +63,8 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$glidE"
     //Glide Annotation
     kapt "com.github.bumptech.glide:annotations:$glidE"
+    //okhtttp for glide
+    implementation "com.github.bumptech.glide:okhttp3-integration:$glidE"
+    //Multidex
+    implementation "androidx.multidex:multidex:$multidex"
 }
