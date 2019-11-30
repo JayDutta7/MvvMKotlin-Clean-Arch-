@@ -45,9 +45,6 @@ class SharedPreferenceImpl(context: Context) : ISharedPreference {
         }
     }
 
-    private fun getAny(key: String) {
-
-    }
 
 
 

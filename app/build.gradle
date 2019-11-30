@@ -41,6 +41,7 @@ dependencies {
     def rxAndroid="2.1.1"
     def rxJava="3.0.0-RC5"
     def roomDatabase="2.2.2"
+    def glidE="4.9.0"
 
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
@@ -55,4 +56,10 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomDatabase"
     // optional - Kotlin Extensions and Rxjava2 support for Room
     implementation "androidx.room:room-rxjava2:$roomDatabase"
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$glidE"
+    //annotaionation processor for java kapt for kotlin
+    kapt "com.github.bumptech.glide:compiler:$glidE"
+    //Glide Annotation
+    kapt "com.github.bumptech.glide:annotations:$glidE"
 }

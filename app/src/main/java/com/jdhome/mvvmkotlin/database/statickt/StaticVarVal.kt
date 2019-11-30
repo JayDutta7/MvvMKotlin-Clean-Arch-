@@ -16,6 +16,7 @@ class StaticVarVal {
 
         /*todo Application--Name*/
         const val applicationName = "MvvMKotlin"
+        const val apiKey = "14461194-9602eb045e94a38240e076805"
 
 
     }
