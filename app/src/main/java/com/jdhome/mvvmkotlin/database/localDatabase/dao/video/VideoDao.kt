@@ -8,11 +8,11 @@ import io.reactivex.Single
 @Dao
 interface VideoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(appSettings: VideoTbl): Completable
+    fun saveVideo(appSettings: VideoTbl): Completable
 
-    @Query("SELECT * FROM VideoTbl WHERE")
-    fun get(): Single<VideoTbl>
+    @Query("SELECT * FROM VideoTable WHERE type=:Type")
+    fun getVideo(Type: String): Single<MutableList<VideoTbl>>
 
     @Update
-    fun update(appSettings: VideoTbl): Completable
+    fun updateVideo(appSettings: VideoTbl): Completable
 }

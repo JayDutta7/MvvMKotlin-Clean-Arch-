@@ -9,10 +9,10 @@ import io.reactivex.Single
 interface PictureDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(appSettings: PictureTbl): Completable
+    fun savePic(appSettings: PictureTbl): Completable
 
-    @Query("SELECT * FROM PictureTable")
-    fun get(): Single<PictureTbl>
+    @Query("SELECT * FROM PictureTable WHERE type=:Type")
+    fun getPic(Type:String): Single<MutableList<PictureTbl>>
 
     @Update
     fun update(appSettings: PictureTbl): Completable

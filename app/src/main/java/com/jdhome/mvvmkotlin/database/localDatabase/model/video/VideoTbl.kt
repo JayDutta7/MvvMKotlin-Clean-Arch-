@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "VideoTable")
 data class VideoTbl(
-    @PrimaryKey/*(autoGenerate = true) val deliveryProductTblId: Int = 0,*/
+    @PrimaryKey/*(autoGenerate = true) val id: Int = 0,*/
     @ColumnInfo(name = "video_id") val videoID: Int,
     @ColumnInfo(name = "videoUrl_small") val videoUrl_small: String?,
     @ColumnInfo(name = "videoUrl_medium") val videoUrl_medium: String?,
