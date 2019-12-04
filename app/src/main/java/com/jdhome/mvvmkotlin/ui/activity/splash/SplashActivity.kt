@@ -29,7 +29,6 @@ class SplashActivity : AppCompatActivity() {
             }
         })
 
-
     }//end of oncreate
 
     private fun goToMainActivity() {

@@ -19,43 +19,11 @@ interface ApiInterface {
     //@Path parameter name must match \{([a-zA-Z][a-zA-Z0-9_-]*)\}.
 
 
-    /*todo------((Api1--Client Config))*//*
-    @POST(WebService.localUrl)
-    fun clientConfiguration(
+    /*todo------((Api1--Get all images))*/
+    @GET(WebService.BaseUrl)
+    fun getAllImages(
         @Query("client_key") clientKey: String?
     ): Single<AppSettingsData>
-
-    *//*toDo---((Api 1i--Client AppSettings))*//*
-    @GET
-    @Headers(
-        "Accept:application/json"
-    )
-    fun getAppSettings(
-        @Url url: String
-    ): Single<AppSettingsData>
-
-
-    *//**toDo--((Api6--Registration))**//*
-    @Multipart
-    @POST
-    fun registrationFromApp(
-        @Url url: String,
-        @Part*//*("profile_pic")*//* image: MultipartBody.Part,
-        @Part("name") name: RequestBody
-    ): Single<AppSettingsData>
-
-
-    *//**toDo((Api-12--UserTracking))*(Post-Raw)*//*
-    @POST
-    @Headers(
-        "Accept:application/json",
-        "Content-Type:application/json"
-    )
-    fun userTrackingApi(
-        @Header("Authorization") token: String,
-        @Url url: String,
-        @Body params: AppSettingsData
-    ): Single<AppSettingsData>*/
 
 
 

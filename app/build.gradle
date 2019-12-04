@@ -40,6 +40,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     def lifecycle_version = "1.1.1"
+    def lifecycle_reactiveStream = "2.1.0"
     def timberLog = "4.7.1"
     def gson = "2.8.5"
     def rxAndroid = "2.1.1"
@@ -56,6 +57,8 @@ dependencies {
 
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    //LiveDataReactiveStreams is a class provided as part of Google’s Jetpack components
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_reactiveStream"
     //RxJava & RxAndroid
     implementation "com.google.code.gson:gson:$gson"
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid"
