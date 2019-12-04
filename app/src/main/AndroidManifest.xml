@@ -13,9 +13,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <activity android:name=".ui.activity.home.Home" />
+        <activity android:name=".ui.activity.home.HomeActivity" />
 
-        <activity android:name=".ui.activity.splash.Splash">
+        <activity android:name=".ui.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

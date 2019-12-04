@@ -1,14 +1,13 @@
-package com.jdhome.mvvmkotlin.ui.activity.splash
+package com.jdhome.mvvmkotlin.ui.activity.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.jdhome.mvvmkotlin.R
 
-class Splash : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
-
+        setContentView(R.layout.activity_home)
     }
 }
