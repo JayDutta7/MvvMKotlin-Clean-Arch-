@@ -1,10 +1,11 @@
-package com.jdhome.mvvmkotlin.ui.activity.home
+package com.jdhome.mvvmkotlin.viewmodel.home
 
 import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jdhome.mvvmkotlin.networking.Res
 import com.jdhome.mvvmkotlin.networking.modelClass.ResponseImages
+import com.jdhome.mvvmkotlin.repository.home.HomeRepository
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

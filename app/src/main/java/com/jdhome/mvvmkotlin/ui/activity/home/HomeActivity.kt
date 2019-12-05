@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.jdhome.mvvmkotlin.R
-import com.jdhome.mvvmkotlin.database.statickt.StaticVarVal
+import com.jdhome.mvvmkotlin.viewmodel.home.HomeViewModel
 import timber.log.Timber
 
 class HomeActivity : AppCompatActivity() {

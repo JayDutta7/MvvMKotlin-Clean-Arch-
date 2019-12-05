@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.jdhome.mvvmkotlin.R
 import com.jdhome.mvvmkotlin.ui.activity.home.HomeActivity
+import com.jdhome.mvvmkotlin.viewmodel.splash.SplashViewModel
 
 class SplashActivity : AppCompatActivity() {
 

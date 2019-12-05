@@ -1,9 +1,7 @@
-package com.jdhome.mvvmkotlin.ui.activity.home
+package com.jdhome.mvvmkotlin.repository.home
 
-import android.util.Log
 import com.jdhome.mvvmkotlin.database.statickt.StaticVarVal
 import com.jdhome.mvvmkotlin.networking.ApiInterface
-import com.jdhome.mvvmkotlin.networking.Res
 import com.jdhome.mvvmkotlin.networking.modelClass.ResponseImages
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers

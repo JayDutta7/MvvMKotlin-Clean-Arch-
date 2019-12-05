@@ -1,4 +1,4 @@
-package com.jdhome.mvvmkotlin.ui.activity.splash
+package com.jdhome.mvvmkotlin.viewmodel.splash
 
 import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
