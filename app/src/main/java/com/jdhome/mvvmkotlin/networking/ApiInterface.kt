@@ -2,6 +2,7 @@ package com.jdhome.mvvmkotlin.networking
 
 
 
+import com.jdhome.mvvmkotlin.database.localDatabase.model.picture.PictureTbl
 import com.jdhome.mvvmkotlin.database.statickt.StaticVarVal
 import io.reactivex.Single
 import okhttp3.MultipartBody
@@ -15,47 +16,58 @@ interface ApiInterface {
 
     /**********************************todo Api Service's***********************************/
     //@Field parameters can only be used with form encoding (POST)
+    //@Url pass runtime url
     //@Query This annotation represents any query key value pair to be sent along with the network request GET/POST
     //@Path parameter name must match \{([a-zA-Z][a-zA-Z0-9_-]*)\}.
 
 
-    /*todo------((Api1--Client Config))*//*
-    @POST(WebService.localUrl)
-    fun clientConfiguration(
-        @Query("client_key") clientKey: String?
-    ): Single<AppSettingsData>
-
-    *//*toDo---((Api 1i--Client AppSettings))*//*
-    @GET
+    //todo------((Api1--All images))
+    @GET(WebService.BaseUrl)
     @Headers(
         "Accept:application/json"
     )
-    fun getAppSettings(
-        @Url url: String
+    fun getAllImages(
+        @Path("client_key") clientKey: String?,
+        @Path("image_type") imageType: String?,
+        @Path("lang") lang: String?,
+        @Path("order") order:String?,
+        @Path("per_page") perPage : String
+    ): Single<PictureTbl>
+
+    //toDo---((Api 2--SearchImages))
+    @GET(WebService.BaseUrl)
+    @Headers(
+        "Accept:application/json"
+    )
+    fun getSpecificImages(
+        @Path("client_key") clientKey: String?,
+        @Path("image_type") imageType: String?,
+        @Path("order") order:String?,
+        @Path("per_page") perPage : String
     ): Single<AppSettingsData>
 
 
-    *//**toDo--((Api6--Registration))**//*
+    //toDo--((Api3--All Videos))
     @Multipart
     @POST
-    fun registrationFromApp(
+    fun getAllVideos(
         @Url url: String,
-        @Part*//*("profile_pic")*//* image: MultipartBody.Part,
+        @Part("profile_pic") image: MultipartBody.Part,
         @Part("name") name: RequestBody
     ): Single<AppSettingsData>
 
 
-    *//**toDo((Api-12--UserTracking))*(Post-Raw)*//*
+    //toDo((Api-4--SearchVideos))*(Post-Raw)
     @POST
     @Headers(
         "Accept:application/json",
         "Content-Type:application/json"
     )
-    fun userTrackingApi(
+    fun getSpecificVideos(
         @Header("Authorization") token: String,
         @Url url: String,
         @Body params: AppSettingsData
-    ): Single<AppSettingsData>*/
+    ): Single<AppSettingsData>
 
 
 

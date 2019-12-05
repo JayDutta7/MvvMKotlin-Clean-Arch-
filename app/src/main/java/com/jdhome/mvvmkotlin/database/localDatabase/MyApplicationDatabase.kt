@@ -5,21 +5,21 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.jdhome.mvvmkotlin.database.localDatabase.dao.pic.PictureDao
+import com.jdhome.mvvmkotlin.database.localDatabase.dao.video.VideoDao
 import com.jdhome.mvvmkotlin.database.localDatabase.model.picture.PictureTbl
+import com.jdhome.mvvmkotlin.database.localDatabase.model.video.VideoTbl
 
 @Database(
     entities =
-    [PictureTbl::class], version = 1, exportSchema = false
+    [PictureTbl::class, VideoTbl::class], version = 1, exportSchema = false
 )
 abstract class MyAppDataBase : RoomDatabase() {
 
 
-
-    //For Color Code
-    abstract fun appSettings(): PictureDao
-
-
-
+    //For Pictures
+    abstract fun pictureDB(): PictureDao
+    //For Videos
+    abstract fun VideoDB(): VideoDao
 
     companion object {
 
