@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.jdhome.mvvmkotlin.R
+import com.jdhome.mvvmkotlin.database.statickt.StaticVarVal
 import com.jdhome.mvvmkotlin.viewmodel.home.HomeViewModel
 import timber.log.Timber
 
@@ -20,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
 
         parameters = HashMap()
 
-        parameters[0] = ""/*StaticVarVal.apiKey*/
+        parameters[0] = StaticVarVal.apiKey
         parameters[1] = "all"
         parameters[2] = "en"
         parameters[3] = "50"
