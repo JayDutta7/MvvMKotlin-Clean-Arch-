@@ -55,5 +55,10 @@ class HomeViewModel : ViewModel() {
         })
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        compositeDisposables?.clear()
+    }
+
 
 }
