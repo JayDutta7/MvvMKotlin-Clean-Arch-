@@ -1,12 +1,12 @@
 package com.jdhome.mvvmkotlin.networking
 
 
-
 import com.jdhome.mvvmkotlin.database.statickt.StaticVarVal
+import com.jdhome.mvvmkotlin.networking.modelClass.ResponseImages
 import io.reactivex.Single
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 import timber.log.Timber
 
 
@@ -22,10 +22,10 @@ interface ApiInterface {
     /*todo------((Api1--Get all images))*/
     @GET(WebService.BaseUrl)
     fun getAllImages(
-        @Query("client_key") clientKey: String?
-    ): Single<AppSettingsData>
-
-
+        @Query("key") clientKey: String,
+        @Query("image_type") imageType: String,
+        @Query("lang") lang: String,
+        @Query("per_page") perPage: String): Single<ResponseImages>
 
 
     /**Create Retrofit Service--By Calling class Create Retrofit**/
@@ -33,7 +33,7 @@ interface ApiInterface {
         fun apiService(url: String): ApiInterface {
             Timber.e("""RetrofitUrl$url""")
             return when (url) {
-                StaticVarVal.gMap -> {
+                StaticVarVal.baseUrl -> {
                     RetrofitNetworking.getClient(WebService.BaseUrl)!!.create(ApiInterface::class.java)
                 }
                 else -> {

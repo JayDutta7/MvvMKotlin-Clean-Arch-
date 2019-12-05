@@ -2,9 +2,9 @@ package com.jdhome.mvvmkotlin.ui.activity.splash
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.jdhome.mvvmkotlin.R
@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         val splashViewModel = ViewModelProviders.of(this).get(SplashViewModel::class.java)
-
+        splashViewModel.delayIntent()
         splashViewModel.liveData.observe(this, Observer {
             when (it) {
                 is SplashViewModel.SplashState.HomeActivity -> {

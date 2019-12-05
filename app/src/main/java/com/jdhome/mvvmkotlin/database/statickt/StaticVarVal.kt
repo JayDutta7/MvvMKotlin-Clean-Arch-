@@ -4,8 +4,7 @@ package com.jdhome.mvvmkotlin.database.statickt
 class StaticVarVal {
 
     companion object {
-        const val baseUrl: String = ""
-        const val gMap: String=""
+        const val baseUrl: String = "baseUrl"
 
         /**userEmail & userPassword**/
         const val userEmail = "userEmail"

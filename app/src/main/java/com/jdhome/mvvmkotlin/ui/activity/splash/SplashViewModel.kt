@@ -1,5 +1,6 @@
 package com.jdhome.mvvmkotlin.ui.activity.splash
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,6 +25,11 @@ class SplashViewModel : ViewModel() {
     init {
         compositeDisposable = CompositeDisposable()
 
+
+    }
+
+    @SuppressLint("CheckResult")
+    fun delayIntent() {
         Completable.complete()
             .delay(3, TimeUnit.SECONDS)
             .doOnError {
