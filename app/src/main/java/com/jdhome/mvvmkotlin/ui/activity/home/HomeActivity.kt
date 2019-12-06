@@ -33,6 +33,9 @@ class HomeActivity : AppCompatActivity() {
         )
         homeViewModel.mutableLiveData.observe(this, Observer {
             Timber.e("""Size${it.extractData?.size}""")
+            Timber.e("""Size${it.mapResource { 
+                
+            }}""")
 
 
 
