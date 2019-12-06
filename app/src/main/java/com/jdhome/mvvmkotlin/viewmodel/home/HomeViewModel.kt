@@ -3,9 +3,9 @@ package com.jdhome.mvvmkotlin.viewmodel.home
 import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.jdhome.mvvmkotlin.networking.sealedClass.CommonResponse
 import com.jdhome.mvvmkotlin.networking.modelClass.ResponseData
 import com.jdhome.mvvmkotlin.networking.modelClass.ResponseImages
+import com.jdhome.mvvmkotlin.networking.sealedClass.CommonResponse
 import com.jdhome.mvvmkotlin.repository.home.HomeRepository
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.CompositeDisposable
@@ -22,13 +22,13 @@ class HomeViewModel : ViewModel() {
     //Access from view
     var mutableLiveData: MutableLiveData<CommonResponse<MutableList<ResponseData>>>
     //Loading information
-    private lateinit var isLoadingMutableLiveData: MutableLiveData<Boolean>
+    // private lateinit var isLoadingMutableLiveData: MutableLiveData<Boolean>
 
     init {
         homeRepository = HomeRepository()
         mutableLiveData = MutableLiveData()
         compositeDisposables = CompositeDisposable()
-        isLoadingMutableLiveData.value = true
+//        isLoadingMutableLiveData.value = true
     }
 
     @SuppressLint("CheckResult")
@@ -39,11 +39,8 @@ class HomeViewModel : ViewModel() {
         )?.doOnError {
             Timber.e(it)
         }/*?.doOnSubscribe {
-            mutableLiveData.value = Res.loading()
-        }*/?.doOnTerminate {
-            //hide loader
-
-        }?.subscribeWith(object : SingleObserver<ResponseImages> {
+            mutableLiveData.value = CommonResponse.Loading()
+        }?*/?.subscribeWith(object : SingleObserver<ResponseImages> {
             override fun onSuccess(resPonse: ResponseImages) {
                 if (resPonse.responseValue.isNotEmpty())
                     mutableLiveData.postValue(CommonResponse.Success(resPonse.responseValue))

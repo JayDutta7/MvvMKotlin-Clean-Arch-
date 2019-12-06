@@ -22,5 +22,4 @@ sealed class CommonResponse<out T> {
         } catch (e: Throwable) {
             Failure(e)
         }
-
 }
