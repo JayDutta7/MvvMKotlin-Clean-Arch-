@@ -10,8 +10,6 @@ import timber.log.Timber
 
 class HomeRepository {
 
-    private val TAG = HomeRepository::class.java.simpleName
-
     private var homeRepoApiService: ApiInterface? = null
 
     init {
@@ -28,7 +26,7 @@ class HomeRepository {
         )?.doOnError {
             Timber.e(it)
         }?.subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
+         ?.observeOn(AndroidSchedulers.mainThread())
 
     }
 

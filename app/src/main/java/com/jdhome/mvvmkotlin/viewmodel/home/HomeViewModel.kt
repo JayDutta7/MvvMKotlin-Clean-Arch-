@@ -3,7 +3,8 @@ package com.jdhome.mvvmkotlin.viewmodel.home
 import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.jdhome.mvvmkotlin.networking.CommonResponse
+import com.jdhome.mvvmkotlin.networking.sealedClass.CommonResponse
+import com.jdhome.mvvmkotlin.networking.modelClass.ResponseData
 import com.jdhome.mvvmkotlin.networking.modelClass.ResponseImages
 import com.jdhome.mvvmkotlin.repository.home.HomeRepository
 import io.reactivex.SingleObserver
@@ -14,12 +15,14 @@ import timber.log.Timber
 
 class HomeViewModel : ViewModel() {
 
-
+    //Access to repository
     private var homeRepository: HomeRepository? = null
+    //Add all disposable
     private var compositeDisposables: CompositeDisposable? = null
-
-    var mutableLiveData: MutableLiveData<CommonResponse<ResponseImages>>
-    lateinit var isLoadingMutableLiveData: MutableLiveData<Boolean>
+    //Access from view
+    var mutableLiveData: MutableLiveData<CommonResponse<MutableList<ResponseData>>>
+    //Loading information
+    private lateinit var isLoadingMutableLiveData: MutableLiveData<Boolean>
 
     init {
         homeRepository = HomeRepository()
@@ -43,7 +46,7 @@ class HomeViewModel : ViewModel() {
         }?.subscribeWith(object : SingleObserver<ResponseImages> {
             override fun onSuccess(resPonse: ResponseImages) {
                 if (resPonse.responseValue.isNotEmpty())
-                    mutableLiveData.value = CommonResponse.Success(resPonse)
+                    mutableLiveData.postValue(CommonResponse.Success(resPonse.responseValue))
             }
 
             override fun onSubscribe(d: Disposable) {
@@ -51,7 +54,7 @@ class HomeViewModel : ViewModel() {
             }
 
             override fun onError(e: Throwable) {
-                mutableLiveData.value = CommonResponse.Error(e)
+                mutableLiveData.value = CommonResponse.Failure(e)
             }
 
         })
