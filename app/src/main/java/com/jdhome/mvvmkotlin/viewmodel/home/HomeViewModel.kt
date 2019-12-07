@@ -33,17 +33,17 @@ class HomeViewModel : ViewModel() {
 
     @SuppressLint("CheckResult")
     fun getAllImages(values: HashMap<Int, String>) {
-        isLoadingMutableLiveData.value = true
+        isLoadingMutableLiveData.postValue(true)
         homeRepository?.getAllImages(
             values
         )?.doOnError {
             Timber.e(it)
-        }/*?.doOnSubscribe {
-            mutableLiveData.value = CommonResponse.Loading()
-        }?*/?.subscribeWith(object : SingleObserver<ResponseImages> {
+        }/*?.map {
+            return@map it.responseValue
+        }*/?.subscribeWith(object : SingleObserver<ResponseImages> {
             override fun onSuccess(resPonse: ResponseImages) {
 
-                isLoadingMutableLiveData.value = false
+                isLoadingMutableLiveData.postValue(false)
 
                 if (resPonse.responseValue.isNotEmpty())
                     mutableLiveData.postValue(CommonResponse.Success(resPonse.responseValue))
@@ -55,9 +55,9 @@ class HomeViewModel : ViewModel() {
 
             override fun onError(e: Throwable) {
 
-                isLoadingMutableLiveData.value = false
+                isLoadingMutableLiveData.postValue(false)
 
-                mutableLiveData.value = CommonResponse.Failure(e)
+                mutableLiveData.postValue(CommonResponse.Failure(e))
             }
 
         })
