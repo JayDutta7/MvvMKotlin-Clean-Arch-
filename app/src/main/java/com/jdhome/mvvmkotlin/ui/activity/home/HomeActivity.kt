@@ -39,6 +39,12 @@ class HomeActivity : AppCompatActivity() {
 
         })
 
+        //show Progress Loader
+        homeViewModel.isLoadingMutableLiveData.observe(this, Observer {
+
+
+        })
+
 
     }//end of onCreate
 

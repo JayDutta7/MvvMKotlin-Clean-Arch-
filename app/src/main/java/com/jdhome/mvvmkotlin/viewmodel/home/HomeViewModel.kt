@@ -22,18 +22,18 @@ class HomeViewModel : ViewModel() {
     //Access from view
     var mutableLiveData: MutableLiveData<CommonResponse<MutableList<ResponseData>>>
     //Loading information
-    // private lateinit var isLoadingMutableLiveData: MutableLiveData<Boolean>
+    var isLoadingMutableLiveData: MutableLiveData<Boolean>
 
     init {
         homeRepository = HomeRepository()
         mutableLiveData = MutableLiveData()
         compositeDisposables = CompositeDisposable()
-//        isLoadingMutableLiveData.value = true
+        isLoadingMutableLiveData = MutableLiveData()
     }
 
     @SuppressLint("CheckResult")
     fun getAllImages(values: HashMap<Int, String>) {
-
+        isLoadingMutableLiveData.value = true
         homeRepository?.getAllImages(
             values
         )?.doOnError {
@@ -42,6 +42,9 @@ class HomeViewModel : ViewModel() {
             mutableLiveData.value = CommonResponse.Loading()
         }?*/?.subscribeWith(object : SingleObserver<ResponseImages> {
             override fun onSuccess(resPonse: ResponseImages) {
+
+                isLoadingMutableLiveData.value = false
+
                 if (resPonse.responseValue.isNotEmpty())
                     mutableLiveData.postValue(CommonResponse.Success(resPonse.responseValue))
             }
@@ -51,6 +54,9 @@ class HomeViewModel : ViewModel() {
             }
 
             override fun onError(e: Throwable) {
+
+                isLoadingMutableLiveData.value = false
+
                 mutableLiveData.value = CommonResponse.Failure(e)
             }
 

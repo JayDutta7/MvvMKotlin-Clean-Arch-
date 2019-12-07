@@ -9,7 +9,7 @@ data class PictureApiResponse(
     val totalHits:Int,
     @SerializedName("total")
     @Expose
-    val total:Int,
+    val total:Int
 
 
 )
