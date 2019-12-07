@@ -9,7 +9,7 @@ object WebService {
     const val protocolType: String = "https://"
     /**Base Url**/
     const val BaseUrl:String = "${protocolType}pixabay.com/api/"
-    /**Local Url**/
+    /**Local Url**/ 
     const val localUrl:String = "test"
 
 
