@@ -13,7 +13,7 @@ import io.reactivex.disposables.Disposable
 import timber.log.Timber
 
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel: ViewModel() {
 
     //Access to repository
     private var homeRepository: HomeRepository? = null
