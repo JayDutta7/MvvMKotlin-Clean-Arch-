@@ -1,6 +1,5 @@
 package com.jdhome.mvvmkotlin.ui.fragment
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

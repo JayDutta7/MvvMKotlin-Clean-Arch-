@@ -16,7 +16,9 @@ sealed class CommonResponse<out T> {
         try {
             when (this) {
                 is Success<T> -> Success(transform(data))
-                is Loading<T> -> Loading(partialData?.let { transform(it) })
+                is Loading<T> -> Loading(partialData?.let {
+                    transform(it)
+                })
                 is Failure<T> -> Failure(throwable)
             }
         } catch (e: Throwable) {
